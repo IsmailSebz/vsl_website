@@ -1,0 +1,33 @@
+[
+  {
+    "AllowedOrigins": [
+      "https://victoriasugar.ug",
+      "https://www.victoriasugar.ug",
+      "https://admin.victoriasugar.ug",
+      "https://media.victoriasugar.ug",
+      "http://localhost:3000",
+      "http://localhost:3001",
+      "http://127.0.0.1:3000",
+      "http://127.0.0.1:3001"
+    ],
+    "AllowedMethods": [
+      "GET",
+      "PUT",
+      "POST",
+      "DELETE",
+      "HEAD"
+    ],
+    "AllowedHeaders": [
+      "*"
+    ],
+    "ExposeHeaders": [
+      "ETag",
+      "Content-Length",
+      "Content-Type",
+      "Content-Range",
+      "Accept-Ranges",
+      "Last-Modified"
+    ],
+    "MaxAgeSeconds": 86400
+  }
+]

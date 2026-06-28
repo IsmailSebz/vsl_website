@@ -1,0 +1,17 @@
+name = "vsl-media-worker"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Bind the R2 bucket
+[[r2_buckets]]
+binding = "MEDIA_BUCKET"
+bucket_name = "vsl-media"
+
+# Route this worker to handle media.victoriasugar.ug
+[[routes]]
+pattern = "media.victoriasugar.ug/*"
+zone_name = "victoriasugar.ug"
+
+[vars]
+ENVIRONMENT = "production"

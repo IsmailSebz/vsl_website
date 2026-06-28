@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-gray-800 antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  /* ── Buttons ─────────────────────────────────────────────────── */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white font-semibold rounded-md
+           hover:bg-green-700 transition-all duration-200 shadow-md hover:shadow-lg
+           active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 border-2 border-green-600 text-green-600 font-semibold
+           rounded-md hover:bg-green-600 hover:text-white transition-all duration-200 active:scale-95;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-gold-400 text-green-900 font-semibold rounded-md
+           hover:bg-gold-500 transition-all duration-200 shadow-md hover:shadow-lg active:scale-95;
+  }
+
+  .btn-outline-white {
+    @apply inline-flex items-center gap-2 px-6 py-3 border-2 border-white text-white font-semibold
+           rounded-md hover:bg-white hover:text-green-700 transition-all duration-200 active:scale-95;
+  }
+
+  /* ── Section layouts ─────────────────────────────────────────── */
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .section-sm {
+    @apply py-10 md:py-16;
+  }
+
+  .container-main {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* ── Section headings ────────────────────────────────────────── */
+  .section-label {
+    @apply text-gold-400 font-semibold text-sm uppercase tracking-widest;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-heading font-bold text-green-800 mt-2 mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-gray-500 text-lg max-w-2xl;
+  }
+
+  /* ── Cards ───────────────────────────────────────────────────── */
+  .card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden;
+  }
+
+  /* ── Form inputs ─────────────────────────────────────────────── */
+  .form-input {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2
+           focus:ring-green-500 focus:border-transparent transition-all duration-200;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+
+  /* ── Page hero (inner pages) ─────────────────────────────────── */
+  .page-hero {
+    @apply relative bg-green-800 text-white py-20 md:py-28 overflow-hidden;
+  }
+
+  .page-hero-overlay {
+    @apply absolute inset-0 bg-black/40;
+  }
+
+  .page-hero-content {
+    @apply relative z-10 container-main;
+  }
+
+  /* ── Rich text content ───────────────────────────────────────── */
+  .prose-vsl {
+    @apply prose prose-lg max-w-none
+           prose-headings:text-green-800 prose-headings:font-heading
+           prose-a:text-green-600 prose-a:no-underline hover:prose-a:underline
+           prose-img:rounded-xl prose-img:shadow-lg;
+  }
+
+  /* ── Admin sidebar ───────────────────────────────────────────── */
+  .admin-nav-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300 hover:bg-green-700
+           hover:text-white transition-all duration-150 font-medium;
+  }
+
+  .admin-nav-link.active {
+    @apply bg-green-700 text-white;
+  }
+}
+
+/* ── Embla carousel ──────────────────────────────────────────────── */
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+}
+.embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+/* ── WhatsApp button pulse ────────────────────────────────────────── */
+@keyframes whatsapp-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.whatsapp-pulse {
+  animation: whatsapp-pulse 2s infinite;
+}
+
+/* ── TipTap editor ────────────────────────────────────────────────── */
+.tiptap-editor .ProseMirror {
+  @apply min-h-64 p-4 focus:outline-none;
+}
+
+.tiptap-editor .ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  @apply text-gray-400 pointer-events-none float-left h-0;
+}
