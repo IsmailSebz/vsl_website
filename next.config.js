@@ -31,6 +31,6 @@ const nextConfig = {
   },
 }
 
-nextConfig.webpack = (config, { webpack, nextRuntime }) => { if (nextRuntime === 'edge') { config.plugins.push(new webpack.DefinePlugin({ document: 'undefined' })); } return config; };
 module.exports = nextConfig
+
 

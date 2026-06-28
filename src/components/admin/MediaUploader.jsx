@@ -1,7 +1,6 @@
 'use client'
 import { useState, useRef, useCallback } from 'react'
 import { Upload, X, Image as ImageIcon, Video, Loader2, CheckCircle, AlertCircle } from 'lucide-react'
-import imageCompression from 'browser-image-compression'
 
 const IMAGE_SIZE_LIMIT = 5 * 1024 * 1024  // 5 MB
 const VIDEO_SIZE_LIMIT = 50 * 1024 * 1024 // 50 MB
@@ -47,6 +46,7 @@ export default function MediaUploader({ onUploadComplete, accept = 'image/*,vide
   const compressImage = async (original) => {
     setStage('compressing')
     try {
+      const { default: imageCompression } = await import('browser-image-compression')
       const compressed = await imageCompression(original, {
         maxSizeMB: 4.5,
         maxWidthOrHeight: 2560,
