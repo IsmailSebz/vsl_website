@@ -4,6 +4,7 @@ import NewsForm from '../../NewsForm'
 
 export const metadata = { title: 'Edit Article' }
 export const dynamic = 'force-dynamic'
+export const runtime = 'edge'
 
 export default async function EditArticlePage({ params }) {
   const supabase = createClient()

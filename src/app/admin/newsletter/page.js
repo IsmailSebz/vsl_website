@@ -3,6 +3,7 @@ import { format } from 'date-fns'
 
 export const metadata = { title: 'Newsletter' }
 export const dynamic = 'force-dynamic'
+export const runtime = 'edge'
 
 export default async function AdminNewsletterPage() {
   const supabase = createClient()

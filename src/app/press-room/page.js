@@ -7,6 +7,7 @@ import { format } from 'date-fns'
 
 export const metadata = { title: 'Press Room' }
 export const dynamic = 'force-dynamic'
+export const runtime = 'edge'
 
 export default async function PressRoomPage() {
   const supabase = createClient()

@@ -6,6 +6,7 @@ import DeleteNewsButton from './DeleteNewsButton'
 
 export const metadata = { title: 'News' }
 export const dynamic = 'force-dynamic'
+export const runtime = 'edge'
 
 export default async function AdminNewsPage() {
   const supabase = createClient()

@@ -6,6 +6,7 @@ import { format } from 'date-fns'
 
 export const metadata = { title: 'Careers' }
 export const dynamic = 'force-dynamic'
+export const runtime = 'edge'
 
 export default async function CareersPage() {
   const supabase = createClient()

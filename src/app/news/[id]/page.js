@@ -1,4 +1,5 @@
 export const dynamic = 'force-dynamic'
+export const runtime = 'edge'
 
 import PublicLayout from '@/components/layout/PublicLayout'
 import { createClient } from '@/lib/supabase/server'

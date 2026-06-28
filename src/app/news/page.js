@@ -7,6 +7,7 @@ import { format } from 'date-fns'
 
 export const metadata = { title: 'News & Media' }
 export const dynamic = 'force-dynamic'
+export const runtime = 'edge'
 
 export default async function NewsPage() {
   const supabase = createClient()

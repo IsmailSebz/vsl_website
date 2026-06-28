@@ -6,6 +6,7 @@ import DeleteRowButton from '@/components/admin/DeleteRowButton'
 
 export const metadata = { title: 'Events' }
 export const dynamic = 'force-dynamic'
+export const runtime = 'edge'
 
 export default async function AdminEventsPage() {
   const supabase = createClient()

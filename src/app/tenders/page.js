@@ -6,6 +6,7 @@ import { format } from 'date-fns'
 
 export const metadata = { title: 'Tenders & Procurement' }
 export const dynamic = 'force-dynamic'
+export const runtime = 'edge'
 
 export default async function TendersPage() {
   const supabase = createClient()

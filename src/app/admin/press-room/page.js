@@ -6,6 +6,7 @@ import DeleteRowButton from '@/components/admin/DeleteRowButton'
 
 export const metadata = { title: 'Press Room' }
 export const dynamic = 'force-dynamic'
+export const runtime = 'edge'
 
 export default async function AdminPressRoomPage() {
   const supabase = createClient()

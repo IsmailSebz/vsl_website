@@ -4,6 +4,7 @@ import MarkReadButton from './MarkReadButton'
 
 export const metadata = { title: 'Inquiries' }
 export const dynamic = 'force-dynamic'
+export const runtime = 'edge'
 
 export default async function AdminInquiriesPage() {
   const supabase = createClient()

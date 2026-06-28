@@ -1,3 +1,4 @@
+export const runtime = 'edge'
 import { NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { deleteObject, urlToKey } from '@/lib/r2/client'
