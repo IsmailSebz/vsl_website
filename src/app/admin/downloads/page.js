@@ -1,6 +1,5 @@
 'use client'
-export const dynamic = 'force-dynamic'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Plus, Trash2, Loader2, X, FileDown } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import MediaUploader from '@/components/admin/MediaUploader'
@@ -15,13 +14,13 @@ export default function AdminDownloadsPage() {
   const [saving, setSaving] = useState(false)
   const [deleting, setDeleting] = useState(null)
 
-  const supabase = createClient()
+  const supabaseRef = useRef(null)
 
-  useEffect(() => { fetchDownloads() }, [])
+  useEffect(() => { supabaseRef.current = createClient(); fetchDownloads() }, [])
 
   const fetchDownloads = async () => {
     setLoading(true)
-    const { data } = await supabase.from('downloads').select('*').order('created_at', { ascending: false })
+    const { data } = await supabaseRef.current.from('downloads').select('*').order('created_at', { ascending: false })
     setDownloads(data || [])
     setLoading(false)
   }
@@ -32,7 +31,7 @@ export default function AdminDownloadsPage() {
     e.preventDefault()
     if (!form.title.trim() || !form.file_url) return
     setSaving(true)
-    await supabase.from('downloads').insert(form)
+    await supabaseRef.current.from('downloads').insert(form)
     setForm({ title: '', category: CATEGORIES[0], description: '', file_url: '' })
     setShowForm(false)
     setSaving(false)
@@ -42,7 +41,7 @@ export default function AdminDownloadsPage() {
   const handleDelete = async (id, title) => {
     if (!confirm(`Delete "${title}"?`)) return
     setDeleting(id)
-    await supabase.from('downloads').delete().eq('id', id)
+    await supabaseRef.current.from('downloads').delete().eq('id', id)
     setDeleting(null)
     fetchDownloads()
   }

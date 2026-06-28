@@ -1,6 +1,5 @@
 'use client'
-export const dynamic = 'force-dynamic'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Plus, Trash2, Loader2, FolderOpen, Upload, X, Play, Pencil } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import MediaUploader from '@/components/admin/MediaUploader'
@@ -17,9 +16,10 @@ export default function AdminGalleryPage() {
   const [creating, setCreating] = useState(false)
   const [deleting, setDeleting] = useState(null)
 
-  const supabase = createClient()
+  const supabaseRef = useRef(null)
 
   useEffect(() => {
+    supabaseRef.current = createClient()
     fetchAlbums()
   }, [])
 
@@ -51,7 +51,7 @@ export default function AdminGalleryPage() {
     e.preventDefault()
     if (!newAlbumName.trim()) return
     setCreating(true)
-    await supabase.from('gallery_albums').insert({ name: newAlbumName.trim(), description: newAlbumDesc.trim() })
+    await supabaseRef.current.from('gallery_albums').insert({ name: newAlbumName.trim(), description: newAlbumDesc.trim() })
     setNewAlbumName('')
     setNewAlbumDesc('')
     setShowNewAlbum(false)
@@ -62,8 +62,8 @@ export default function AdminGalleryPage() {
   const deleteAlbum = async (id) => {
     if (!confirm('Delete this album and all its items?')) return
     setDeleting(id)
-    await supabase.from('gallery_items').delete().eq('album_id', id)
-    await supabase.from('gallery_albums').delete().eq('id', id)
+    await supabaseRef.current.from('gallery_items').delete().eq('album_id', id)
+    await supabaseRef.current.from('gallery_albums').delete().eq('id', id)
     setDeleting(null)
     if (selectedAlbum === id) setSelectedAlbum(null)
     await fetchAlbums()
@@ -71,7 +71,7 @@ export default function AdminGalleryPage() {
 
   const handleUploadComplete = async (url, type) => {
     if (!selectedAlbum) return
-    await supabase.from('gallery_items').insert({
+    await supabaseRef.current.from('gallery_items').insert({
       album_id: selectedAlbum,
       media_url: url,
       media_type: type,
@@ -85,7 +85,7 @@ export default function AdminGalleryPage() {
   const deleteItem = async (id) => {
     if (!confirm('Delete this item?')) return
     setDeleting(id)
-    await supabase.from('gallery_items').delete().eq('id', id)
+    await supabaseRef.current.from('gallery_items').delete().eq('id', id)
     setDeleting(null)
     fetchItems(selectedAlbum)
   }
