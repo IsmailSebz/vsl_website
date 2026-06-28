@@ -29,17 +29,8 @@ const nextConfig = {
       },
     ]
   },
-  webpack: (config, { nextRuntime, webpack }) => {
-    if (nextRuntime === 'edge') {
-      config.plugins.push(
-        new webpack.ProvidePlugin({
-          document: require.resolve('./src/lib/mock-document.js'),
-          window: require.resolve('./src/lib/mock-window.js'),
-        })
-      )
-    }
-    return config
-  },
+
 }
 
 module.exports = nextConfig
+

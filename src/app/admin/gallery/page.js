@@ -2,7 +2,8 @@
 import { useState, useEffect, useRef } from 'react'
 import { Plus, Trash2, Loader2, FolderOpen, Upload, X, Play, Pencil } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
-import MediaUploader from '@/components/admin/MediaUploader'
+import dynamic from 'next/dynamic'
+const MediaUploader = dynamic(() => import('@/components/admin/MediaUploader'), { ssr: false })
 
 export default function AdminGalleryPage() {
   const [albums, setAlbums] = useState([])
@@ -228,3 +229,4 @@ export default function AdminGalleryPage() {
     </div>
   )
 }
+

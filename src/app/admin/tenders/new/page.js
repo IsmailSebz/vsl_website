@@ -3,7 +3,8 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { Save, Loader2 } from 'lucide-react'
-import MediaUploader from '@/components/admin/MediaUploader'
+import dynamic from 'next/dynamic'
+const MediaUploader = dynamic(() => import('@/components/admin/MediaUploader'), { ssr: false })
 
 export default function NewTenderPage() {
   const router = useRouter()
@@ -85,3 +86,4 @@ export default function NewTenderPage() {
     </div>
   )
 }
+

@@ -2,7 +2,8 @@
 import { useState, useEffect, useRef } from 'react'
 import { Plus, Trash2, Loader2, X, FileDown } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
-import MediaUploader from '@/components/admin/MediaUploader'
+import dynamic from 'next/dynamic'
+const MediaUploader = dynamic(() => import('@/components/admin/MediaUploader'), { ssr: false })
 
 const CATEGORIES = ['Annual Reports', 'Product Specifications', 'Certificates', 'Brochures', 'Forms', 'Sustainability Reports', 'Other']
 
@@ -144,3 +145,4 @@ export default function AdminDownloadsPage() {
     </div>
   )
 }
+

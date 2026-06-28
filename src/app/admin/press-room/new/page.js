@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { Save, Loader2 } from 'lucide-react'
 import dynamic from 'next/dynamic'
-import MediaUploader from '@/components/admin/MediaUploader'
+const MediaUploader = dynamic(() => import('@/components/admin/MediaUploader'), { ssr: false })
 
 const RichTextEditor = dynamic(() => import('@/components/admin/RichTextEditor'), { ssr: false })
 
@@ -85,3 +85,4 @@ export default function NewPressReleasePage() {
     </div>
   )
 }
+

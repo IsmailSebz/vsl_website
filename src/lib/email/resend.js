@@ -1,6 +1,8 @@
 // Email sending via Resend
 // Add RESEND_API_KEY to .env.local when ready
 
+import { Resend } from 'resend'
+
 /**
  * Send the contact/inquiry form email to info@victoriasugar.com
  * and save to Supabase inquiries table.
@@ -14,7 +16,6 @@ export async function sendInquiryEmail({ name, email, phone, subject, message, i
     return { success: true, dev: true }
   }
 
-  const { Resend } = await import('resend')
   const resend = new Resend(apiKey)
 
   const { data, error } = await resend.emails.send({

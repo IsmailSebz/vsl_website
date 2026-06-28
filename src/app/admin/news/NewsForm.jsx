@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Save, Loader2, Upload, X } from 'lucide-react'
 import dynamic from 'next/dynamic'
-import MediaUploader from '@/components/admin/MediaUploader'
+const MediaUploader = dynamic(() => import('@/components/admin/MediaUploader'), { ssr: false })
 import { createClient } from '@/lib/supabase/client'
 
 // Load TipTap editor client-side only (no SSR)
@@ -185,3 +185,4 @@ export default function NewsForm({ article }) {
     </form>
   )
 }
+
