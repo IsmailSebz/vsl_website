@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase/server'
 import { Download, FileText } from 'lucide-react'
 
 export const metadata = { title: 'Downloads' }
+export const dynamic = 'force-dynamic'
 
 export default async function DownloadsPage() {
   const supabase = createClient()

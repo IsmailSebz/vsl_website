@@ -1,5 +1,6 @@
 import PublicLayout from '@/components/layout/PublicLayout'
 import PageHero from '@/components/ui/PageHero'
+import OpenInquiryButton from '@/components/ui/OpenInquiryButton'
 
 export const metadata = { title: 'Where to Buy' }
 
@@ -33,9 +34,7 @@ export default function WhereToBuyPage() {
           <div className="mt-10 bg-green-50 rounded-2xl p-8 text-center">
             <h3 className="font-heading font-bold text-green-800 text-xl mb-3">Become an Authorised Distributor</h3>
             <p className="text-gray-500 mb-5">Interested in distributing Victoria Sugar products in your area?</p>
-            <button onClick={() => window.dispatchEvent(new CustomEvent('open-inquiry-modal'))} className="btn-primary">
-              Send an Inquiry
-            </button>
+            <OpenInquiryButton className="btn-primary">Send an Inquiry</OpenInquiryButton>
           </div>
         </div>
       </section>

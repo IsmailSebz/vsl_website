@@ -6,6 +6,7 @@ import { Calendar, ArrowRight } from 'lucide-react'
 import { format } from 'date-fns'
 
 export const metadata = { title: 'News & Media' }
+export const dynamic = 'force-dynamic'
 
 export default async function NewsPage() {
   const supabase = createClient()

@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import PublicLayout from '@/components/layout/PublicLayout'
 import { createClient } from '@/lib/supabase/server'
 import { notFound } from 'next/navigation'

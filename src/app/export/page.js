@@ -1,5 +1,6 @@
 import PublicLayout from '@/components/layout/PublicLayout'
 import PageHero from '@/components/ui/PageHero'
+import OpenInquiryButton from '@/components/ui/OpenInquiryButton'
 
 export const metadata = { title: 'Export Markets' }
 export default function ExportPage() {
@@ -18,7 +19,7 @@ export default function ExportPage() {
                   <div key={c} className="bg-green-50 rounded-lg px-4 py-3 text-green-700 font-medium text-sm">{c}</div>
                 ))}
               </div>
-              <button onClick={() => window.dispatchEvent(new CustomEvent('open-inquiry-modal'))} className="btn-primary mt-8">Export Inquiry</button>
+              <OpenInquiryButton className="btn-primary mt-8">Export Inquiry</OpenInquiryButton>
             </div>
             <img src="https://media.victoriasugar.ug/images/DJI_20251217161456_0929_D.jpg" alt="Export" className="rounded-2xl shadow-xl w-full aspect-[4/3] object-cover" />
           </div>

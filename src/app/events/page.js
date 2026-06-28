@@ -5,6 +5,7 @@ import { Calendar, MapPin } from 'lucide-react'
 import { format } from 'date-fns'
 
 export const metadata = { title: 'Events' }
+export const dynamic = 'force-dynamic'
 
 export default async function EventsPage() {
   const supabase = createClient()

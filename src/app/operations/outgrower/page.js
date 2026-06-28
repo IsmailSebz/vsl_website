@@ -2,6 +2,7 @@ import PublicLayout from '@/components/layout/PublicLayout'
 import PageHero from '@/components/ui/PageHero'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle } from 'lucide-react'
+import OpenInquiryButton from '@/components/ui/OpenInquiryButton'
 
 export const metadata = { title: 'Outgrower Programme' }
 
@@ -45,9 +46,7 @@ export default function OutgrowerPage() {
                   </li>
                 ))}
               </ul>
-              <button onClick={() => window.dispatchEvent(new CustomEvent('open-inquiry-modal'))} className="btn-primary">
-                Apply Now <ArrowRight size={18} />
-              </button>
+              <OpenInquiryButton className="btn-primary">Apply Now <ArrowRight size={18} /></OpenInquiryButton>
             </div>
             <img src="https://media.victoriasugar.ug/images/DJI_20251217161456_0929_D.jpg" alt="Outgrower farmers" className="rounded-2xl shadow-xl w-full aspect-[4/3] object-cover" />
           </div>

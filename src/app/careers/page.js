@@ -5,6 +5,7 @@ import { Calendar, MapPin, Briefcase } from 'lucide-react'
 import { format } from 'date-fns'
 
 export const metadata = { title: 'Careers' }
+export const dynamic = 'force-dynamic'
 
 export default async function CareersPage() {
   const supabase = createClient()

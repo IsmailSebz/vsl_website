@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Newspaper, Image, FileText, Briefcase, Calendar, Download, Mail, Users } from 'lucide-react'
 
 export const metadata = { title: 'Dashboard' }
+export const dynamic = 'force-dynamic'
 
 export default async function AdminDashboard() {
   const supabase = createClient()
